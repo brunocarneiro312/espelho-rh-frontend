@@ -1,0 +1,79 @@
+<div class="wrapper">
+  <form (ngSubmit)="signUp($event)">
+    <div class="avatar" (click)="changeAvatar()">
+      <div class="avt-img">
+        <img src="/assets/img/camera.svg" alt="Add Photo">
+      </div>
+    </div>
+    <div class="configs">
+      <div style="display: flex;align-items: center">
+        <label class="switch" (click)="onEnableUser()">
+          <input type="checkbox" name="enabled" [(ngModel)]="form.enabled">
+          <span class="slider round"></span>
+        </label>
+        <label style="margin-left: 10px;">Enabled</label>
+      </div>
+      <div style="display: flex;align-items: center">
+        <label class="switch" (click)="onSetAdminUser()">
+          <input type="checkbox" name="admin" [(ngModel)]="form.admin">
+          <span class="slider round"></span>
+        </label>
+        <label style="margin-left: 10px;">Admin</label>
+      </div>
+    </div>
+    <div class="userdata">
+      <div class="form-group">
+        <label for="input-name">Name</label>
+        <input type="text" id="input-name" name="name" required [(ngModel)]="form.name"/>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Email</label>
+        <input type="email" id="input-email" name="email" [(ngModel)]="form.email"/>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Password</label>
+        <input type="password" id="input-password" name="password" [(ngModel)]="form.password"/>
+      </div>
+      <div>
+        <br>
+        <button type="submit">Finalizar Cadastro</button>
+      </div>
+      <div style="margin-top: 10px;">
+        <span (click)="limparFormulario()"
+              style="font-size: 0.8em;cursor: pointer;color:#663a82">Limpar formulário</span>
+      </div>
+    </div>
+  </form>
+  <div class="preview">
+    <div class="form-group">
+      <label for="preview-name">Name</label>
+      <div id="preview-name">
+        <span>{{ form.name }}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="preview-email">Email</label>
+      <div id="preview-email">
+        <span>{{ form.email }}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="preview-name">Password</label>
+      <div id="preview-password">
+        <span>{{ form.password }}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="preview-enabled">Enabled</label>
+      <div id="preview-enabled">
+        <span>{{ form.enabled }}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="preview-admin">Admin</label>
+      <div id="preview-admin">
+        <span>{{ form.admin }}</span>
+      </div>
+    </div>
+  </div>
+</div>

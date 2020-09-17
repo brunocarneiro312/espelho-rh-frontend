@@ -1,0 +1,24 @@
+.aside-menu-container {
+  padding: 30px 15px;
+}
+
+label {
+  opacity: .2;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+ul {
+  min-width: 250px;
+  list-style-type: none;
+
+  li {
+    line-height: 25px;
+
+    &:last-child {
+      line-height: 40px;
+    }
+  }
+}

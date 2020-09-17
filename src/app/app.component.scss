@@ -1,0 +1,98 @@
+.wrapper {
+
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  grid-template-rows: 75px 1fr auto;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+}
+
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 350px 1fr auto;
+  grid-template-areas: "brand search actions";
+  background: #7c5295;
+  color: white;
+
+  .brand {
+    font-family: Roboto, sans-serif;
+    font-size: 1.1em;
+    padding: 15px;
+    grid-area: brand;
+    display: flex;
+    align-items: center;
+    background: #663a82;
+  }
+
+  .search {
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    grid-area: search;
+
+    input {
+      color: white;
+      font-size: 1.1em;
+      border: 0;
+      padding: 10px;
+      width: 700px;
+      background: #8e5fa9;
+      border-radius: 5px;
+
+      &::placeholder {
+        color: white;
+        opacity: .4;
+      }
+    }
+  }
+
+  .actions {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    grid-area: actions;
+  }
+}
+
+aside {
+
+  app-aside-menu {
+    justify-content: center;
+  }
+
+  background: #f7f9fc;
+  display: grid;
+  grid-area: aside;
+}
+
+main {
+  padding: 30px 15px;
+  grid-area: main;
+}
+
+footer {
+  background: #333;
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+
+  .watermark {
+    padding: 15px;
+
+    img {
+      height: 25px;
+    }
+  }
+}
+
+.badge {
+  font-size: 0.8em;
+  margin: 5px 10px;
+  background: #491d64;
+  border-radius: 5px;
+  padding: 2.5px 5px;
+}

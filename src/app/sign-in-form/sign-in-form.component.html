@@ -1,1 +1,26 @@
-<p>sign-in-form works!</p>
+<div class="wrapper">
+  <form (ngSubmit)="signIn()" [formGroup]="formSignIn">
+    <div class="form-group">
+      <label for="input-email">Email</label>
+      <input
+        type="email"
+        id="input-email"
+        name="email"
+        formControlName="username" />
+      <div class="label-error" *ngIf="!formSignIn.get('username').valid && formSignIn.get('username').touched">
+        Por favor, insira um e-mail válido.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="input-password">Password</label>
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        id="input-password"
+        name="password"
+        formControlName="password" />
+    </div>
+    <div>
+      <button type="submit" [disabled]="!formSignIn.valid">Entrar</button>
+    </div>
+  </form>
+</div>

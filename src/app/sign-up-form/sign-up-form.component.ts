@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from '../service/user.service';
 import {User} from '../model/user';
 import {Role} from '../model/role';
+import {UserService} from '../service/user/user.service';
+import {AuthService} from '../service/auth/auth.service';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -27,24 +28,28 @@ export class SignUpFormComponent implements OnInit {
     }
   };
 
-  private userService: UserService;
+  private authService: AuthService;
 
-  constructor(userService: UserService) {
-    this.userService = userService;
+  constructor(authService: AuthService) {
+    this.authService = authService;
   }
 
   signUp(event): boolean {
+
     const user = new User();
+
     user.name = this.form.name;
-    user.email = this.form.email;
+    user.username = this.form.email;
     user.enabled = this.form.enabled;
     user.password = this.form.password;
     user.roles.push(new Role('ROLE_COMMON'));
+
     if (this.form.admin) {
       user.roles.push(new Role('ROLE_ADMIN'));
     }
+
     try {
-      this.userService.save(user);
+      this.authService.signUp(user);
       return true;
     }
     catch (err) {
@@ -95,7 +100,7 @@ export class SignUpFormComponent implements OnInit {
     this.form.enabled = this.user.enabled;
     this.form.admin = this.user.roles.some(r => r.roleName === 'ADMIN');
     this.form.name = this.user.name;
-    this.form.email = this.user.email;
+    this.form.email = this.user.username;
     this.form.password = this.user.password;
   }
 

@@ -4,7 +4,7 @@ export class User {
 
   private _id: number;
   private _name: string;
-  private _email: string;
+  private _username: string;
   private _password: string;
   private _roles: Array<Role> = new Array<Role>();
   private _enabled: boolean;
@@ -25,12 +25,12 @@ export class User {
     this._name = value;
   }
 
-  get email(): string {
-    return this._email;
+  get username(): string {
+    return this._username;
   }
 
-  set email(value: string) {
-    this._email = value;
+  set username(value: string) {
+    this._username = value;
   }
 
   get password(): string {

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" [ngClass]="isUserLoggedIn ? '' : 'template-401'">
   <header>
     <div class="brand">
       SecurityAuthManager <span class="badge">v1.0</span>
@@ -7,22 +7,16 @@
       <input type="text" placeholder="O que você procura?"/>
     </div>
     <div class="actions">
-      Sair
+      <span (click)="logout()">Sair</span>
     </div>
   </header>
   <aside>
     <app-aside-menu></app-aside-menu>
   </aside>
   <main>
-    <app-sign-up-form></app-sign-up-form>
     <router-outlet></router-outlet>
   </main>
   <footer>
-    <div>
 
-    </div>
-    <div class="watermark">
-
-    </div>
   </footer>
 </div>

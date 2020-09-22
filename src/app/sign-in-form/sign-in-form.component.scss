@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 15px;
+
+  form {
+
+    max-width: 500px;
+
+    label {
+      color: #ab83c4;
+      display: block;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+      font-size: 0.8em;
+    }
+
+    input {
+      color: #663a82;
+      border: 0;
+      border-bottom: 1px solid #d8c0e7;
+      background-color: #f4eff6;
+      padding: 10px;
+      font-size: 1.1em;
+      width: 100%;
+
+      &:focus {
+        border-bottom: 1px solid #b08cc6;
+      }
+      &.ng-invalid.ng-touched {
+        border-bottom: 1px solid red;
+      }
+    }
+
+    button {
+      margin-top: 15px;
+      border: 0;
+      padding: 15px;
+      background-color: #663a82;
+      color: white;
+      width: 100%;
+      font-size: 1.1em;
+
+      &:hover {
+        background-color: #8e5fa9;
+      }
+    }
+
+  }
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.label-error {
+  margin: 5px 0;
+  font-size: 0.8em;
+  color: #f31010;
+}

@@ -84,3 +84,8 @@ input:checked + .slider:before {
 input:focus, textarea:focus, select:focus{
   outline: none;
 }
+
+button[disabled] {
+  opacity: .5;
+  cursor: not-allowed;
+}

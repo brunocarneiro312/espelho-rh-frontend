@@ -89,3 +89,21 @@ button[disabled] {
   opacity: .5;
   cursor: not-allowed;
 }
+
+.label-error {
+  font-size: 0.8em;
+  padding: 5px 0;
+  color: #bc6ca7;
+}
+
+.alert {
+
+  padding: 15px;
+  border-radius: 5px;
+
+  &.error {
+    color: #be4b4b;
+    background: #fae5e5;
+    border: 1px solid #e59d9d;
+  }
+}

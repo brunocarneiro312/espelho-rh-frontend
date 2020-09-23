@@ -1,10 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../service/auth/auth.service';
-import {User} from '../model/user';
-import {Subject, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Signin} from '../model/request/signin';
-import {Token} from '../model/response/token';
 import {Router} from '@angular/router';
 
 @Component({
@@ -20,7 +18,8 @@ export class SignInFormComponent implements OnInit, OnDestroy {
   // Subscriptions
   onSignInSubscription: Subscription;
 
-  showPassword: boolean;
+  showPassword: boolean = false;
+  errorMessage: string = undefined;
 
   constructor(private authService: AuthService, private router: Router) {
 
@@ -32,12 +31,14 @@ export class SignInFormComponent implements OnInit, OnDestroy {
    * ----------------------------------
    */
   signIn(): void {
-
     const signin = new Signin(
       this.formSignIn.controls['username'].value,
       this.formSignIn.controls['password'].value);
 
-    this.authService.signIn(new Signin(signin.username, signin.password));
+    this.authService.signIn(
+      new Signin(
+        signin.username,
+        signin.password));
   }
 
   /**
@@ -56,10 +57,15 @@ export class SignInFormComponent implements OnInit, OnDestroy {
   // Listeners
   // ---------
   onSignIn() {
-    this.onSignInSubscription = this.authService.onSignIn.subscribe((token) => {
-      localStorage.setItem('token', JSON.stringify(token));
-      this.router.navigate(['/']);
-    });
+    this.onSignInSubscription = this.authService.onSignIn
+      .subscribe((data) => {
+          if (!data.jwt) {
+            this.errorMessage = 'Credenciais inválidas.';
+            return;
+          }
+          this.router.navigate(['/']);
+        },
+        (error) => this.errorMessage = error);
   }
 
   // -----------------------

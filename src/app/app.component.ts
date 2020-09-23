@@ -12,8 +12,8 @@ export class AppComponent implements OnInit, OnDestroy  {
 
   title = 'auth-api-interface';
 
-  onSignInSubscription: Subscription = new Subscription();
-  onLogoutSubscription: Subscription = new Subscription();
+  onSignInSubscription: Subscription;
+  onLogoutSubscription: Subscription;
 
   isUserLoggedIn: boolean;
 
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy  {
   onSignInListener() {
     this.onSignInSubscription = this.authService.onSignIn
       .subscribe((token) => {
-        this.isUserLoggedIn = token.jwt.length > 0;
+        this.isUserLoggedIn = token.jwt && token.jwt.length > 0;
       });
   }
 

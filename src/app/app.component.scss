@@ -11,6 +11,9 @@
 }
 
 .template-401 {
+
+  width: 100%;
+
   grid-template-areas:
     "main main"
     "main main"
@@ -23,7 +26,10 @@
   }
 
   main {
-    justify-self: center;
+    min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
   }
 }
 

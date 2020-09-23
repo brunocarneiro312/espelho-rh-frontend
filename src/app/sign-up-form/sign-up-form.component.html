@@ -1,6 +1,6 @@
 <div class="wrapper">
   <form (ngSubmit)="signUp($event)">
-    <div class="configs">
+    <div class="configs" *ngIf="false">
       <div style="display: flex;align-items: center">
         <label class="switch" (click)="onEnableUser()">
           <input type="checkbox" name="enabled" [(ngModel)]="form.enabled">
@@ -34,8 +34,8 @@
         <button type="submit">Finalizar Cadastro</button>
       </div>
       <div style="margin-top: 10px;">
-        <span (click)="limparFormulario()"
-              style="font-size: 0.8em;cursor: pointer;color:#663a82">Limpar formulário</span>
+<!--        <span (click)="limparFormulario()" style="font-size: 0.8em;cursor: pointer;color:#663a82">Limpar formulário</span>-->
+        <span style="font-size: 0.8em;cursor: pointer;color:#663a82">Sign In</span>
       </div>
     </div>
   </form>

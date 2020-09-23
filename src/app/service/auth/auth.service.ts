@@ -1,12 +1,11 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {User} from '../../model/user';
-import {Observable, Subject} from 'rxjs';
+import {Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {Signin} from '../../model/request/signin';
 import {Token} from '../../model/response/token';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +32,12 @@ export class AuthService {
   signIn(user: Signin): void {
       this.http.post<Token>(environment.api.public.signin, user)
         .pipe(map((data: Token) => new Token(data['jwt'])))
-        .subscribe((token) => this.onSignIn.next(token));
+        .subscribe(
+          (token) => {
+            localStorage.setItem('token', token.jwt);
+            this.onSignIn.next(token);
+          },
+          () => this.onSignIn.next(new Token(undefined)));
   }
 
   logout(): void {

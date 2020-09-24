@@ -17,12 +17,11 @@ input {
   color: #653A82;
   padding: 15px;
   font-size: 1.1em;
-  border: 0;
   width: 100%;
   height: 50px;
   border: 1px solid #eaeaea;
   background: #FFFFFF;
-  box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
@@ -48,8 +47,5 @@ button {
   font-size: 0.8em;
   padding: 10px 0;
   color: #aaa;
-
-  .action {
-    color: #7c5295;
-  }
+  text-align: center;
 }

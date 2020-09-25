@@ -4,31 +4,29 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AsideMenuComponent} from './aside-menu/aside-menu.component';
-import {SignInFormComponent} from './sign-in-form/sign-in-form.component';
-import {SignUpFormComponent} from './sign-up-form/sign-up-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HighlightDirective} from './highlight.directive';
 import {HomeComponent} from './home/home.component';
-import {UserComponent} from './user/user.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
+import {UserModule} from './user/user.module';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AsideMenuComponent,
-    SignInFormComponent,
-    SignUpFormComponent,
     HighlightDirective,
     HomeComponent,
-    UserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    UserModule,
+    AppRoutingModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

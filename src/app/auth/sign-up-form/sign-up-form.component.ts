@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from '../model/user';
-import {Role} from '../model/role';
-import {UserService} from '../service/user/user.service';
-import {AuthService} from '../service/auth/auth.service';
+import {User} from '../../model/user';
+import {Role} from '../../model/role';
+import {UserService} from '../../service/user/user.service';
+import {AuthService} from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-sign-up-form',

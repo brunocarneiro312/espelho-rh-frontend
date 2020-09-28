@@ -38,11 +38,11 @@ header {
   grid-template-columns: 350px 1fr auto;
   grid-template-areas: "brand search actions";
   background: #7c5295;
-  color: white;
+  color: #d6d6d6;
 
   .brand {
     font-family: Roboto, sans-serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     padding: 15px;
     grid-area: brand;
     display: flex;
@@ -78,6 +78,20 @@ header {
     display: flex;
     align-items: center;
     grid-area: actions;
+    opacity: .5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .action {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+    }
   }
 }
 

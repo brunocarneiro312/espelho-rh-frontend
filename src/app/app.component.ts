@@ -16,12 +16,18 @@ export class AppComponent implements OnInit, OnDestroy  {
   onLogoutSubscription: Subscription;
 
   isUserLoggedIn: boolean;
+  isModalOpened: boolean;
 
   constructor(private authService: AuthService, private router: Router) {
 
   }
 
+  confirmLogout() {
+    this.isModalOpened = true;
+  }
+
   logout() {
+
     this.authService.logout();
     this.router.navigate(['/signin']);
   }
@@ -34,6 +40,13 @@ export class AppComponent implements OnInit, OnDestroy  {
       .subscribe((token) => {
         this.isUserLoggedIn = token.jwt && token.jwt.length > 0;
       });
+  }
+
+  onAnswer(data) {
+    this.isModalOpened = false;
+    if (data) {
+      this.logout();
+    }
   }
 
   onLogoutListener() {

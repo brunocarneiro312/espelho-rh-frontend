@@ -1,4 +1,10 @@
 <div class="wrapper" [ngClass]="isUserLoggedIn ? '' : 'template-401'">
+  <app-modal
+    [title]="'Atenção'"
+    (answer)="onAnswer($event)"
+    *ngIf="isModalOpened">
+    Deseja sair do sistema?
+  </app-modal>
   <header>
     <div class="brand">
       SecurityAuthManager <span class="badge">v1.0</span>
@@ -7,7 +13,9 @@
       <input type="text" placeholder="O que você procura?"/>
     </div>
     <div class="actions">
-      <span (click)="logout()">Sair</span>
+      <div (click)="confirmLogout()" class="action">
+        <i class="fa fa-sign-out fa-fw fa-2x"></i>
+      </div>
     </div>
   </header>
   <aside>

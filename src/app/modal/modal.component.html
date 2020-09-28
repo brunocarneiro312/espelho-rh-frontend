@@ -1,0 +1,14 @@
+<app-overlay class="flex">
+  <div class="modal">
+    <div class="header">
+      {{ title || 'Alert' }}
+    </div>
+    <div class="body">
+      <ng-content></ng-content>
+    </div>
+    <div class="actions">
+      <button (click)="cancel()" class="default">Cancelar</button>
+      <button (click)="confirm()" class="primary">Sair</button>
+    </div>
+  </div>
+</app-overlay>

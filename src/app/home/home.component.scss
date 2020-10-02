@@ -1,0 +1,11 @@
+.home-container {
+
+  div {
+    &.greetings {
+      font-size: 2em;
+    }
+    &.info {
+      margin-top: 20px;
+    }
+  }
+}

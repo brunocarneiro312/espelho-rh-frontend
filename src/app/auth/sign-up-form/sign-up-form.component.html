@@ -2,7 +2,7 @@
   <form (ngSubmit)="signUp($event)" #formSignUp="ngForm">
     <div class="userdata">
       <div class="form-group">
-        <label for="input-name">Name</label>
+        <label for="input-name">Nome do Funcionário</label>
         <input
           type="text"
           id="input-name"
@@ -14,20 +14,19 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="input-name">Email</label>
+        <label for="input-name">RG do funcionário</label>
         <input
-          type="email"
-          id="input-email"
-          name="email"
+          type="text"
+          id="input-rg"
+          name="name"
           ngModel
-          email
           required />
-        <div class="label-error" *ngIf="!formSignUp.controls.email || (!formSignUp.controls.email.valid && formSignUp.controls.email.touched)">
-          Insira um e-mail válido.
+        <div class="label-error" *ngIf="!formSignUp.controls.name || (!formSignUp.controls.name.valid && formSignUp.controls.name.touched)">
+          Preencha o nome.
         </div>
       </div>
       <div class="form-group">
-        <label for="input-name">Password</label>
+        <label for="input-name">Senha</label>
         <input
           type="password"
           id="input-password"
@@ -40,7 +39,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="input-name">Confirm Password</label>
+        <label for="input-name">Confirme a senha</label>
         <input
           type="password"
           id="input-confirm-password"
@@ -60,7 +59,7 @@
         </button>
       </div>
       <div class="bottom-actions">
-        <a [routerLink]="'/signin'">Sign In</a> | <a (click)="formSignUp.reset()">Reset Form</a>
+        <a (click)="formSignUp.reset()">Limpar formulário</a>
       </div>
     </div>
   </form>

@@ -32,8 +32,8 @@ export class SignInFormComponent implements OnInit, OnDestroy {
    */
   signIn(): void {
     const signin = new Signin(
-      this.formSignIn.controls['username'].value,
-      this.formSignIn.controls['password'].value);
+      this.formSignIn.controls.username.value,
+      this.formSignIn.controls.password.value);
 
     this.authService.signIn(
       new Signin(
@@ -48,9 +48,9 @@ export class SignInFormComponent implements OnInit, OnDestroy {
    */
   getFormSignIn(): FormGroup {
     return new FormGroup({
-      "username": new FormControl(null, [Validators.required, Validators.email]),
-      "password": new FormControl(null, [Validators.required])
-    })
+      username: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
+    });
   }
 
   // ---------

@@ -13,6 +13,7 @@ import {UserModule} from './user/user.module';
 import {AuthModule} from './auth/auth.module';
 import { OverlayComponent } from './shared/overlay/overlay.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { FuncionarioComponent } from './model/funcionario/funcionario.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     HomeComponent,
     OverlayComponent,
     ModalComponent,
+    FuncionarioComponent,
   ],
   imports: [
     BrowserModule,

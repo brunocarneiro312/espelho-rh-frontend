@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from './service/auth/auth.service';
 import {Subscription} from 'rxjs';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,8 @@ export class AppComponent implements OnInit, OnDestroy  {
   isUserLoggedIn: boolean;
   isModalOpened: boolean;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService,
+              private router: Router) {
 
   }
 
@@ -27,7 +28,6 @@ export class AppComponent implements OnInit, OnDestroy  {
   }
 
   logout() {
-
     this.authService.logout();
     this.router.navigate(['/signin']);
   }
@@ -56,6 +56,9 @@ export class AppComponent implements OnInit, OnDestroy  {
       })
   }
 
+  // ---------------
+  // Lifecycle hooks
+  // ---------------
   ngOnInit(): void {
     this.isUserLoggedIn = this.authService.isUserLoggedIn();
     this.onSignInListener();
@@ -65,5 +68,4 @@ export class AppComponent implements OnInit, OnDestroy  {
   ngOnDestroy(): void {
     this.onSignInSubscription.unsubscribe();
   }
-
 }

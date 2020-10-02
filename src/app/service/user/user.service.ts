@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {User} from '../../model/user';
 import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
@@ -32,18 +32,20 @@ export class UserService {
       }));
   }
 
-  update(user: User): void {
+  update(user: User): User {
     try {
       this.onUpdate.next(user);
+      return user;
     }
     catch (err) {
       this.onUpdate.error('Erro ao atualizar usuário');
     }
   }
 
-  delete(user: User): void {
+  delete(user: User): User {
     try {
       this.onDelete.next(user);
+      return user;
     }
     catch (err) {
       this.onDelete.error('Erro ao remover usuário');
@@ -56,7 +58,7 @@ export class UserService {
         const userRecovered = new User();
         userRecovered.name = user.name;
         userRecovered.username = user.username;
-        userRecovered.password = user.password;
+        this.onGet.next(userRecovered);
         return userRecovered;
       }));
   }

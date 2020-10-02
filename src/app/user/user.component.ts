@@ -11,6 +11,9 @@ import {User} from '../model/user';
 })
 export class UserComponent implements OnInit, OnDestroy {
 
+  /**
+   * Subscriptions
+   */
   private onSaveSubscription: Subscription;
   private onUpdateSubscription: Subscription;
   private onDeleteSubscription: Subscription;
@@ -19,10 +22,14 @@ export class UserComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private userService: UserService) {
 
   }
 
+  /**
+   * CRUD
+   */
   save(): void {
     this.userService.save(new User())
       .subscribe(
@@ -40,26 +47,24 @@ export class UserComponent implements OnInit, OnDestroy {
 
   get(id: number): void {
     this.userService.get(id)
-      .subscribe((user) => {
-        console.log('user => ' + user.username);
-        return user;
-      }, error => {
-        console.log(error.status);
-      });
+      .subscribe(
+        (user) => user,
+        (error) => console.log(error.status));
   }
 
   list(): Array<User> {
     return this.userService.list();
   }
 
+  /**
+   * Lifecycle Hooks
+   */
   ngOnInit(): void {
     this.onSaveSubscription = new Subscription();
     this.onUpdateSubscription = new Subscription();
     this.onDeleteSubscription = new Subscription();
     this.onGetSubscription = new Subscription();
     this.onListSubscription = new Subscription();
-
-    this.get(1);
   }
 
   ngOnDestroy(): void {

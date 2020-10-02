@@ -11,8 +11,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import {UserModule} from './user/user.module';
 import {AuthModule} from './auth/auth.module';
-import { OverlayComponent } from './overlay/overlay.component';
-import { ModalComponent } from './modal/modal.component';
+import { OverlayComponent } from './shared/overlay/overlay.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
   declarations: [

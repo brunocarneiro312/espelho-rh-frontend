@@ -18,7 +18,8 @@ export class HighlightDirective implements OnInit {
     this.backgroundColor = this.defaultColor;
   }
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
+  constructor(private elementRef: ElementRef,
+              private renderer: Renderer2) {
 
   }
 

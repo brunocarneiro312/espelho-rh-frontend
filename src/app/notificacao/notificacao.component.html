@@ -1,0 +1,67 @@
+<div class="wrapper-notificacao">
+  <form (ngSubmit)="save()" #formCadastro="ngForm">
+    <div class="userdata">
+      <div class="form-group">
+        <label for="input-name">Funcionário</label>
+        <select
+          type="text"
+          id="input-name"
+          name="funcionario"
+          ngModel
+          required>
+          <option value="">--</option>
+        </select>
+        <div class="label-error" *ngIf="!formCadastro.controls.funcionario || (!formCadastro.controls.funcionario.valid && formCadastro.controls.funcionario.touched)">
+          Selecione o funcionário.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Data de início da vigência</label>
+        <input
+          type="text"
+          id="input-dt-inicio"
+          name="dataInicio"
+          ngModel
+          required />
+        <div class="label-error" *ngIf="!formCadastro.controls.dataInicio || (!formCadastro.controls.dataInicio.valid && formCadastro.controls.dataInicio.touched)">
+          Selecione a data de início da vigência.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Data de início da vigência</label>
+        <input
+          type="text"
+          id="input-dt-fim"
+          name="dataFim"
+          ngModel
+          required />
+        <div class="label-error" *ngIf="!formCadastro.controls.dataFim || (!formCadastro.controls.dataFim.valid && formCadastro.controls.dataFim.touched)">
+          Selecione a data de fim da vigência.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Mensagem</label>
+        <textarea
+          type="text"
+          id="input-rg"
+          name="mensagem"
+          ngModel
+          required>
+        </textarea>
+        <div class="label-error" *ngIf="!formCadastro.controls.mensagem || (!formCadastro.controls.mensagem.valid && formCadastro.controls.mensagem.touched)">
+          Preencha a mensagem.
+        </div>
+      </div>
+      <div>
+        <br>
+        <button type="submit"
+                [disabled]="!formCadastro.valid">
+          Enviar Notificação
+        </button>
+      </div>
+      <div class="bottom-actions">
+        <a (click)="formCadastro.reset()">Limpar formulário</a>
+      </div>
+    </div>
+  </form>
+</div>

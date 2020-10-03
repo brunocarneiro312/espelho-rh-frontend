@@ -1,0 +1,66 @@
+<div class="wrapper-funcionario">
+  <form (ngSubmit)="save()" #formCadastro="ngForm">
+    <div class="userdata">
+      <div class="form-group">
+        <label for="input-name">Nome do Funcionário</label>
+        <input
+          type="text"
+          id="input-name"
+          name="name"
+          ngModel
+          required />
+        <div class="label-error" *ngIf="!formCadastro.controls.name || (!formCadastro.controls.name.valid && formCadastro.controls.name.touched)">
+          Preencha o nome.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">RG do funcionário</label>
+        <input
+          type="text"
+          id="input-rg"
+          name="name"
+          ngModel
+          required />
+        <div class="label-error" *ngIf="!formCadastro.controls.name || (!formCadastro.controls.name.valid && formCadastro.controls.name.touched)">
+          Preencha o nome.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Senha</label>
+        <input
+          type="password"
+          id="input-password"
+          name="password"
+          ngModel
+          required
+          minlength="6" />
+        <div class="label-error" *ngIf="!formCadastro.controls.password || (!formCadastro.controls.password.valid && formCadastro.controls.password.touched)">
+          O password deve ter no mínimo 6 caracteres.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Confirme a senha</label>
+        <input
+          type="password"
+          id="input-confirm-password"
+          name="confirmPassword"
+          ngModel
+          required
+          minlength="6" />
+        <div class="label-error" *ngIf="!formCadastro.controls.confirmPassword || (!formCadastro.controls.confirmPassword.valid && formCadastro.controls.confirmPassword.touched)">
+          O password deve ter no mínimo 6 caracteres.
+        </div>
+      </div>
+      <div>
+        <br>
+        <button type="submit"
+                [disabled]="!formCadastro.valid">
+          Finalizar Cadastro
+        </button>
+      </div>
+      <div class="bottom-actions">
+        <a (click)="formCadastro.reset()">Limpar formulário</a>
+      </div>
+    </div>
+  </form>
+</div>

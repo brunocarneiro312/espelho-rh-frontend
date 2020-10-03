@@ -11,9 +11,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
 import {UserModule} from './user/user.module';
 import {AuthModule} from './auth/auth.module';
-import { OverlayComponent } from './shared/overlay/overlay.component';
-import { ModalComponent } from './shared/modal/modal.component';
-import { FuncionarioComponent } from './model/funcionario/funcionario.component';
+import {OverlayComponent} from './shared/overlay/overlay.component';
+import {ModalComponent} from './shared/modal/modal.component';
+import {EspelhoComponent} from './espelho/espelho.component';
+import {NotificacaoComponent} from './notificacao/notificacao.component';
+import {FuncionarioComponent} from './funcionario/funcionario.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FuncionarioComponent } from './model/funcionario/funcionario.component'
     OverlayComponent,
     ModalComponent,
     FuncionarioComponent,
+    EspelhoComponent,
+    NotificacaoComponent,
   ],
   imports: [
     BrowserModule,

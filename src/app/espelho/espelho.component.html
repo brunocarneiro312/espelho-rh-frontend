@@ -1,3 +1,67 @@
 <div class="wrapper-espelho">
-  Espelho
+  <form (ngSubmit)="save()" #formCadastro="ngForm">
+    <div class="userdata">
+      <div class="form-group">
+        <label for="input-name">Funcionário</label>
+        <select
+          type="text"
+          id="input-name"
+          name="funcionario"
+          ngModel
+          required>
+          <option value="">--</option>
+        </select>
+        <div class="label-error" *ngIf="!formCadastro.controls.funcionario || (!formCadastro.controls.funcionario.valid && formCadastro.controls.funcionario.touched)">
+          Selecione o funcionário.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-anomes">ano / mês</label>
+        <input
+          type="text"
+          id="input-anomes"
+          name="anoMes"
+          ngModel
+          required />
+        <div class="label-error" *ngIf="!formCadastro.controls.anoMes || (!formCadastro.controls.anoMes.valid && formCadastro.controls.anoMes.touched)">
+          Selecione o ano e mês. (ex: 2020/07)
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-pdf">Selecione o arquivo (pdf)</label>
+        <input
+          type="file"
+          id="input-pdf"
+          name="file"
+          ngModel
+          required />
+        <div class="label-error" *ngIf="!formCadastro.controls.file || (!formCadastro.controls.file.valid && formCadastro.controls.file.touched)">
+          Selecione o arquivo.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="input-name">Mensagem</label>
+        <textarea
+          type="text"
+          id="input-rg"
+          name="mensagem"
+          ngModel
+          required>
+        </textarea>
+        <div class="label-error" *ngIf="!formCadastro.controls.mensagem || (!formCadastro.controls.mensagem.valid && formCadastro.controls.mensagem.touched)">
+          Preencha a mensagem.
+        </div>
+      </div>
+      <div>
+        <br>
+        <button type="submit"
+                [disabled]="!formCadastro.valid">
+          Salvar
+        </button>
+      </div>
+      <div class="bottom-actions">
+        <a (click)="formCadastro.reset()">Limpar formulário</a>
+      </div>
+    </div>
+  </form>
 </div>
